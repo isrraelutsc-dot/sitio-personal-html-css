@@ -1,0 +1,214 @@
+/* ==========================================================
+   styles.css · Sitio personal de Antonio Rodriguez
+   Hoja de estilos externa compartida por las 5 páginas.
+   ========================================================== */
+
+/* ---------- Variables de color (paleta del sitio) ---------- */
+:root {
+  --azul-oscuro: #12213f;   /* texto principal, encabezado y pie */
+  --azul-medio: #1c3260;    /* fondo del botón al pasar el cursor */
+  --dorado: #e0a82e;        /* acento: botón y detalles */
+  --dorado-oscuro: #c9922a; /* acento al pasar el cursor */
+  --gris-fondo: #f3f5fa;    /* fondo de la página */
+  --blanco: #ffffff;
+  --gris-texto: #3a4357;    /* texto secundario */
+  --borde: #c5cfe0;
+}
+
+/* ---------- Selectores de tipo: elementos base ---------- */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;  /* sans-serif: más legible en pantalla */
+  font-size: 18px;
+  line-height: 1.6;
+  color: var(--azul-oscuro);
+  background-color: var(--gris-fondo);
+}
+
+h1, h2 {
+  font-family: Georgia, "Times New Roman", serif;  /* serif: da personalidad a los títulos */
+  color: var(--azul-oscuro);
+}
+h1 { font-size: 2.4rem; margin: 0 0 16px; }
+h2 { font-size: 1.5rem; margin: 24px 0 8px; }
+
+p { margin: 0 0 14px; color: var(--gris-texto); }
+ul { margin: 0; padding: 0; list-style: none; }
+img { max-width: 100%; height: auto; }
+
+/* ---------- Selector de ID: logotipo ---------- */
+#logo {
+  display: block;
+  width: 64px;
+  height: 64px;
+  border-radius: 10px;
+}
+
+/* ---------- Encabezado y navegación (modelo de caja: padding y margin) ---------- */
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 48px;
+  background-color: var(--blanco);
+  border-bottom: 3px solid var(--dorado);
+}
+
+.menu { display: flex; gap: 8px; }
+
+.menu a {
+  display: block;
+  padding: 10px 16px;
+  color: var(--azul-oscuro);
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 6px;
+}
+.menu a:hover { background-color: var(--gris-fondo); }
+.menu a.activo { background-color: var(--azul-oscuro); color: var(--blanco); }  /* página actual */
+
+/* ---------- Contenido principal ---------- */
+.contenido {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 48px 32px 64px;
+}
+
+.intro { font-size: 1.1rem; max-width: 760px; }
+
+/* ---------- Home: presentación ---------- */
+.presentacion { text-align: center; padding-top: 24px; }
+.subtitulo {
+  font-size: 1.3rem;
+  color: var(--gris-texto);
+  margin-bottom: 28px;
+}
+
+.caja-destacada {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 36px 40px;
+  background-color: var(--blanco);
+  border: 2px solid var(--azul-oscuro);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* ---------- Selector de clase: botón de llamada a la acción ---------- */
+.boton-primario {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 14px 32px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--azul-oscuro);
+  background-color: var(--dorado);
+  border: 2px solid var(--azul-oscuro);
+  border-radius: 28px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.2s, box-shadow 0.2s;
+}
+
+/* Pseudo-clase :hover: el botón cambia de color y proyecta sombra al pasar el cursor */
+.boton-primario:hover {
+  background-color: var(--azul-oscuro);
+  color: var(--blanco);
+  box-shadow: 0 6px 14px rgba(18, 33, 63, 0.35);
+}
+.boton-primario:focus-visible { outline: 3px solid var(--azul-medio); outline-offset: 3px; }
+
+.cta-centrado { text-align: center; margin-top: 32px; }
+
+/* ---------- Enlaces dentro del texto ---------- */
+.enlace { color: #0b4f9c; font-weight: bold; }
+.enlace:hover { color: var(--azul-oscuro); text-decoration: none; }
+
+/* ---------- Sobre mí y Contacto: dos columnas ---------- */
+.dos-columnas {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 40px;
+  align-items: start;
+}
+.foto-perfil { border-radius: 12px; border: 3px solid var(--dorado); }
+
+/* ---------- Servicios ---------- */
+.servicio {
+  display: flex;
+  gap: 28px;
+  align-items: center;
+  padding: 24px;
+  margin-top: 20px;
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+.servicio h2 { margin-top: 0; }
+.servicio p { margin-bottom: 0; }
+
+/* ---------- Portafolio ---------- */
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 24px;
+}
+.proyecto {
+  padding: 16px;
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+.proyecto img { border-radius: 6px; }
+.proyecto h2 { font-size: 1.2rem; margin-top: 14px; }
+.proyecto p { margin-bottom: 0; font-size: 1rem; }
+
+/* ---------- Contacto ---------- */
+.contacto { grid-template-columns: 1fr 1fr; }
+.mapa { border-radius: 10px; border: 1px solid var(--borde); }
+.datos li { margin-bottom: 8px; }
+
+#formulario-contacto {
+  padding: 24px 28px;
+  background-color: var(--blanco);
+  border: 1px solid var(--borde);
+  border-radius: 10px;
+}
+#formulario-contacto h2 { margin-top: 0; }
+.campo { margin-bottom: 16px; }
+.campo label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-weight: bold;
+  color: var(--azul-oscuro);
+}
+.arroba { font-size: 1.3rem; width: 22px; text-align: center; }
+.campo input,
+.campo textarea {
+  width: 100%;
+  padding: 10px 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  color: var(--azul-oscuro);
+  border: 1px solid #8a95ab;
+  border-radius: 6px;
+}
+.campo input:focus,
+.campo textarea:focus { outline: 3px solid var(--dorado); border-color: var(--azul-oscuro); }
+
+/* ---------- Pie de página con redes sociales ---------- */
+.pie {
+  padding: 24px 48px;
+  background-color: var(--azul-oscuro);
+  text-align: center;
+}
+.redes { display: flex; justify-content: center; gap: 16px; margin-bottom: 12px; }
+.redes img { width: 44px; height: 44px; border-radius: 50%; border: 2px solid var(--dorado); }
+.redes a:hover img { background-color: var(--dorado); }
+.derechos { margin: 0; font-size: 0.9rem; color: #dfe5f2; }
